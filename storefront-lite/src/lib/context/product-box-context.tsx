@@ -141,7 +141,6 @@ export const ProductBoxProvider = ({
 
   const form = useForm<VariantFormProps>({
     defaultValues: {
-      // @ts-ignore
       variants: product.variants.map((variant) => ({
         ...variant,
         variant_id: variant.id,

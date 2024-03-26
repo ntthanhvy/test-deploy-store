@@ -2,8 +2,10 @@
 
 import { canBuy } from "@lib/util/can-buy"
 import { findCheapestPrice } from "@lib/util/prices"
-import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
-import { ProductVariant } from "@medusajs/product"
+import {
+  PricedProduct,
+  PricedVariant,
+} from "@medusajs/medusa/dist/types/pricing"
 import isEqual from "lodash/isEqual"
 import { formatVariantPrice, useCart } from "medusa-react"
 import React, {
@@ -41,7 +43,7 @@ interface ProductBoxProviderProps {
 
 type VariantFormProps = {
   variants: Array<
-    ProductVariant & {
+    PricedVariant & {
       variant_id: string
       quantity: number
       selected: boolean
@@ -152,12 +154,7 @@ export const ProductBoxProvider = ({
     },
   })
   const { watch } = form
-
-  const [boxQuantity, boxVariants, boxType] = watch([
-    "boxQuantity",
-    "variants",
-    "boxType",
-  ])
+  const { variants: boxVariants, boxType } = watch()
 
   const addToCart = () => {
     // console.log(variant)

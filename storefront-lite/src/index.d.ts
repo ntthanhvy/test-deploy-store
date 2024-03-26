@@ -23,8 +23,4 @@ export declare module "@medusajs/medusa/dist/types/pricing" {
   export interface PricedProduct {
     personalized_message?: boolean
   }
-
-  export interface PricedVariant {
-    thumbnail?: string | null
-  }
 }

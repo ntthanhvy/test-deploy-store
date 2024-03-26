@@ -51,7 +51,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
         {images.map((image, index) => {
           return (
             <div
-              ref={(image) => imageRefs.current.push(image)}
+              ref={(image) => { imageRefs.current.push(image)} }
               key={image.id}
               className="relative aspect-[29/34] w-full"
               id={image.id}

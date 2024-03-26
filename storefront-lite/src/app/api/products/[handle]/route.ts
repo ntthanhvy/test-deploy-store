@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from "next/server"
-import { initialize as initializeProductModule } from "@medusajs/product"
+// import { initialize as initializeProductModule } from "@medusajs/product"
 
 /**
  * This endpoint uses the serverless Product Module to retrieve a product by handle.
@@ -14,27 +14,27 @@ export async function GET(
   const { handle } = params
 
   // Initialize the Product Module
-  const productService = await initializeProductModule()
+  // const productService = await initializeProductModule()
 
-  // Run the query
-  const products = await productService.list(
-    { handle },
-    {
-      relations: [
-        "variants",
-        "variants.options",
-        "tags",
-        "options",
-        "options.values",
-        "images",
-        "description",
-        "collection",
-        "status",
-      ],
-      take: 1,
-    }
-  )
+  // // Run the query
+  // const products = await productService.list(
+  //   { handle },
+  //   {
+  //     relations: [
+  //       "variants",
+  //       "variants.options",
+  //       "tags",
+  //       "options",
+  //       "options.values",
+  //       "images",
+  //       "description",
+  //       "collection",
+  //       "status",
+  //     ],
+  //     take: 1,
+  //   }
+  // )
 
   // Return the response
-  return NextResponse.json({ products })
+  return NextResponse.json({ products: [] })
 }
